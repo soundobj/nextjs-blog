@@ -1,0 +1,6 @@
+{
+  "cucumberautocomplete.customParameters": [ 
+  ],
+  "tailwindCSS.includeLanguages": { "typescriptreact": "html", "plaintext": "javascript" },
+  "tailwindCSS.emmetCompletions": true
+}
