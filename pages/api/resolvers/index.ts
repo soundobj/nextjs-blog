@@ -14,6 +14,18 @@ export const resolvers = {
         throw error;
       }
     },
+    getNotes: async () => {
+      try {
+        const notes = await axios.get("http://localhost:3000/api/notes");
+        return notes.data.map(({ _id, name, content }) => ({
+          _id,
+          name,
+          content
+        }));
+      } catch (error) {
+        throw error;
+      }
+    },
     getUser: async (_, args) => {
       try {
         const user = await axios.get(

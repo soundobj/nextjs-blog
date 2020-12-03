@@ -7,7 +7,14 @@ export  const  typeDefs  =  gql`
         avatar_url: String
     }
 
+    type Note {
+       _id: ID
+       name: String
+       content: String 
+    }
+
     type  Query {
+        getNotes: [Note]
         getUsers: [User]
         getUser(name: String!): User!
     }`
