@@ -17,7 +17,7 @@ export const resolvers = {
     getNotes: async () => {
       try {
         const notes = await axios.get("http://localhost:3000/api/notes");
-        return notes.data.map(({ _id, name, content }) => ({
+        return notes.data.data.map(({ _id, name, content }) => ({
           _id,
           name,
           content
@@ -38,6 +38,21 @@ export const resolvers = {
         };
       } catch (error) {
         throw error;
+      }
+    }
+  },
+  Mutation: {
+    addNote: async (_, args) => {
+      try {
+        const notes = await axios.post(
+          "http://localhost:3000/api/notes", {
+            ...args
+          }
+        )
+        console.error('@_addNote POST', notes);
+        return notes; 
+      } catch (error) {
+        throw error
       }
     }
   }
